@@ -1,8 +1,12 @@
 # Data-Representation
 
 
-## Uploaded first XML Notepad file. 
+## Weekly lab submissions and a project towards the end of the module.  
 
-- Simple file, containing books and it's details from a library. 
+- Enabling us to write software application programs.
+- XML and HTML, Javascript.
+- Creating a web application.
+- Design and utilise application programming interfaces for interacting with data sources.
+
 
 
