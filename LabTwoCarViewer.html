@@ -44,7 +44,7 @@
                     <td>Nissan</td>
                     <td>Almera</td>
                     <td>23,000</td>
-                    <!-- Create	a showUpdate(buttonElement)	function, that shows the form. -->
+                    <!-- Create a showUpdate(buttonElement) function, that shows the form. -->
                     <td><button onclick="showUpdate(this)">Update</button></td>
                     <td><button onclick="doDelete(this)">Delete</button></td>
                 </tr>
@@ -106,8 +106,8 @@
         function doCreate(){
         var form = document.getElementById('createUpdateForm')
         var car = {}
-// In do create read all	the	values from the	form and store them in a car Object,
-// we can test	that this works	by	doing a	console.log	of the	car	Object.
+// In do create read all the values from the form and store them in a car Object,
+// we can test	that this works	by doing a console.log of the car Object.
         car.reg = form.querySelector('input[name="reg"]').value
         car.make = form.querySelector('select[name="make"]').value
         car.model = form.querySelector('input[name="model"]').value
@@ -157,7 +157,7 @@
         form.querySelector('input[name="model"]').value=''
         form.querySelector('input[name="price"]').value=''
     }
-// Write a function	called getCarFromRow, that takes in	a Row element and returns a	car	object.
+// Write a function called getCarFromRow, that takes in	a Row element and returns a	car	object.
     function getCarFromRow(rowElement){
         var car ={}
         car.reg  = rowElement.cells[0].firstChild.textContent
