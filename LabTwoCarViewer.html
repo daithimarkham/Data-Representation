@@ -1,0 +1,196 @@
+<!-- David Markham 10/10/2019 -->
+<!-- Use the webpage in Lab one to create a webpage -->
+<!-- That has the functionality to: -->
+<!-- Create a new car, View all the cars, Update a car and Delete a car. -->
+<!-- C.R.U.D. -->
+
+<html>
+    <head> 
+        <title>View Cars</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1> Cars </h1>
+        <!-- Give the create and table(below) id's so they can be discoverable -->
+        <div> <button id="showCreateButton" onclick="showCreate()">Create</button></div>  
+        <div> 
+            <table class="table" id="carTable">
+                <tr>
+                       <th>Reg</th>
+                       <th>Make</th>
+                       <th>Model</th>
+                       <th>Price</th>
+                       <th>Update</th> 
+                       <th>Delete</th>
+                </tr> 
+                <tr id="191 Mo 124">
+                    <td>191 Mo 124</td>
+                    <td>Ford</td>
+                    <td>Mondeo</td>
+                    <td>25,000</td>
+                    <td><button onclick="showUpdate(this)">Update</button></td>
+                    <td><button onclick="doDelete(this)">Delete</button></td>
+                </tr>
+                <tr id="191 G 324">
+                    <td>191 G 324</td>
+                    <td>Nissan</td>
+                    <td>Micro</td>
+                    <td>18,000</td>
+                    <td><button onclick="showUpdate(this)">Update</button></td>
+                    <td><button onclick="doDelete(this)">Delete</button></td>    
+                </tr>
+                <tr id="191 CE 159">
+                    <td>191 CE 159</td>
+                    <td>Nissan</td>
+                    <td>Almera</td>
+                    <td>23,000</td>
+                    <!-- Create	a showUpdate(buttonElement)	function, that shows the form. -->
+                    <td><button onclick="showUpdate(this)">Update</button></td>
+                    <td><button onclick="doDelete(this)">Delete</button></td>
+                </tr>
+            </table> 
+        </div>
+        <!-- Modify the div so it is hidden and give it an ID -->
+        <div id='createUpdateForm' style="display: none">
+            <!-- Add ids to	the	spans that surround	the	words create and update	and	the	two	buttons	in	the	form <div> -->
+            <h2><span id="createLabel">Create an</span> <span id="updateLabel">update</span> Car</h2>
+            Reg <input type="text" name="reg"/> <br/>
+            Make <select name="make">
+                    <option value="Ford">Ford</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Nissan">Nissan</option>
+            </select> <br/>
+            Model <input type="text" name="model"/> <br/>
+            Price <input type="number" name="price"/> <br/>
+            <!-- Add ids to	the	spans that surround	the	words create and update	and	the	two	buttons	in	the	form <div> -->
+            <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
+            <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
+        </div> 
+    </body>
+    <!-- Write a function called (showCreate) that hides the create button and table, and shows the createUpdateForm <div> -->
+    <!-- Call the function when Create button is clicked (line 14) -->
+    <!-- Then add code to showCreate() that	shows the create button	and	word and hides the update button and word.(test	it)  -->
+    <!-- Write some more functions such as doCreate, clearForm etc below. You will need to add more data into the table also.  -->
+    <Script>
+        function showCreate(){
+            document.getElementById('showCreateButton').style.display="none"
+            document.getElementById('carTable').style.display="none"
+            document.getElementById('createUpdateForm').style.display="block"
+
+            document.getElementById('createLabel').style.display="inline"
+            document.getElementById('updateLabel').style.display="none"
+
+            document.getElementById('doCreateButton').style.display="block"
+            document.getElementById('doUpdateButton').style.display="none"
+        }
+        function showViewAll(){
+            document.getElementById('showCreateButton').style.display="block"
+            document.getElementById('carTable').style.display="block"
+            document.getElementById('createUpdateForm').style.display="none"
+        }
+        function showUpdate(buttonElement){
+            document.getElementById('showCreateButton').style.display="none"
+            document.getElementById('carTable').style.display="none"
+            document.getElementById('createUpdateForm').style.display="block"
+            document.getElementById('createLabel').style.display="none"
+            document.getElementById('updateLabel').style.display="inline"
+            document.getElementById('doCreateButton').style.display="none"
+            document.getElementById('doUpdateButton').style.display="block" 
+
+            var rowElement = buttonElement.parentNode.parentNode
+        
+            var car = getCarFromRow(rowElement)
+            populateFormWithCar(car)
+        } 
+        // Write some more functions such as doCreate, clearForm etc below. You will need to add more data into the table also.    
+        function doCreate(){
+        var form = document.getElementById('createUpdateForm')
+        var car = {}
+// In do create read all	the	values from the	form and store them in a car Object,
+// we can test	that this works	by	doing a	console.log	of the	car	Object.
+        car.reg = form.querySelector('input[name="reg"]').value
+        car.make = form.querySelector('select[name="make"]').value
+        car.model = form.querySelector('input[name="model"]').value
+        car.price = form.querySelector('input[name="price"]').value
+        console.log(JSON.stringify(car))
+        addCarToTable(car)
+        clearForm()
+        
+        showViewAll()
+    }
+    function doUpdate(){
+        var car = getCarFromForm();
+        var rowElement = document.getElementById(car.reg)
+        setCarInRow(rowElement,car)
+       
+        clearForm()
+        showViewAll()
+    }
+    function doDelete(r){
+        var tableElement = document.getElementById('carTable')
+        var index = r.parentNode.parentNode.rowIndex;
+        tableElement.deleteRow(index);
+    }
+// add car to table, and make function listed underneath, and add in all the data.
+    function addCarToTable(car){
+        var tableElement = document.getElementById('carTable')
+        var rowElement = tableElement.insertRow(-1)
+        rowElement.setAttribute('id',car.reg)
+        var cell1 = rowElement.insertCell(0);
+        cell1.innerHTML = car.reg
+        var cell2 = rowElement.insertCell(1);
+        cell2.innerHTML = car.make
+        var cell3 = rowElement.insertCell(2);
+        cell3.innerHTML = car.model
+        var cell4 = rowElement.insertCell(3);
+        cell4.innerHTML = car.price
+        var cell5 = rowElement.insertCell(4);
+        cell5.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
+        var cell6 = rowElement.insertCell(5);
+        cell6.innerHTML = '<button onclick=doDelete(this)>delete</button>'
+    }
+    function clearForm(){
+        var form = document.getElementById('createUpdateForm')
+        form.querySelector('input[name="reg"]').disabled = false
+        form.querySelector('input[name="reg"]').value  =''
+        form.querySelector('select[name="make"]').value=''
+        form.querySelector('input[name="model"]').value=''
+        form.querySelector('input[name="price"]').value=''
+    }
+// Write a function	called getCarFromRow, that takes in	a Row element and returns a	car	object.
+    function getCarFromRow(rowElement){
+        var car ={}
+        car.reg  = rowElement.cells[0].firstChild.textContent
+        car.make = rowElement.cells[1].firstChild.textContent
+        car.model = rowElement.cells[2].firstChild.textContent
+        car.price = rowElement.cells[3].firstChild.textContent
+        return car
+    }
+    function setCarInRow(rowElement, car){
+        rowElement.cells[0].firstChild.textContent= car.reg  
+        rowElement.cells[1].firstChild.textContent= car.make 
+        rowElement.cells[2].firstChild.textContent= car.model
+        rowElement.cells[3].firstChild.textContent= car.price
+    }
+// Next write a function which takes in a car.
+    function populateFormWithCar(car){
+        var form = document.getElementById('createUpdateForm')
+        form.querySelector('input[name="reg"]').disabled = true
+        form.querySelector('input[name="reg"]').value  = car.reg
+        form.querySelector('select[name="make"]').value= car.make
+        form.querySelector('input[name="model"]').value= car.model
+        form.querySelector('input[name="price"]').value= car.price
+        return car
+    }
+    function getCarFromForm(){
+        var form = document.getElementById('createUpdateForm')
+        var car = {}
+        car.reg = form.querySelector('input[name="reg"]').value
+        car.make = form.querySelector('select[name="make"]').value
+        car.model = form.querySelector('input[name="model"]').value
+        car.price = form.querySelector('input[name="price"]').value
+        console.log(JSON.stringify(car))
+        return car
+    }
+    </Script>
+</html> 
