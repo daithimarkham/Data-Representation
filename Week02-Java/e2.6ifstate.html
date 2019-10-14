@@ -1,0 +1,30 @@
+<!-- David Markham 09/10/2019 -->
+<!-- Make a webpage that has a text box -->
+<!-- IF content of the text area changes, -->
+<!-- The page will display whether the value entered is greater of less than 10, or equal to 10 -->
+
+
+<html>
+    <head>
+        <title>2.6</title>
+    </head>
+    <body>
+        <input type="number" onchange="checknumber(this)"/> 
+        <br/> 
+        <div id="output"> 
+            output here
+        </div>
+        <script>
+            function checknumber(inputElement){
+                var value = inputElement.value
+                if( value <10){ 
+                    document.getElementById("output").innerText = "too low" 
+                }else if (value > 10){
+                    document.getElementById("output").innerText = "too high" 
+                }else{
+                    document.getElementById("output").innerText = "just right" 
+                }
+            }
+        </script>
+    </body>
+</html>

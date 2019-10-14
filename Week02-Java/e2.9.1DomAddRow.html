@@ -1,0 +1,44 @@
+<!-- David Markham 09/10/2019  -->
+<!-- Parent Nodes -->
+<!-- Create a button that when it is clicked, -->
+<!-- It adds a row to the table with data -->
+
+
+<html>
+    <head>
+        <title>2.9.1</title> 
+    </head>
+    <body>
+        <table id ="mainTable">
+            <tr>
+                <td>Hello</td>
+                <td>Goodbye</td>
+                <td><button onclick="doRow(this)">Output</button></td>
+            </tr>
+        </table>
+        <button onclick="createRow()">Create Row</button>
+    </body>
+    <script>
+        function doRow(buttonElement){
+            var rowElement = buttonElement.parentNode.parentNode
+            var data={}
+            data.cell1 = rowElement.cells[0].firstChild.textContent;
+            data.cell2 = rowElement.cells[1].firstChild.textContent;
+            console.log(JSON.stringify(data))
+            
+        }
+        function createRow(){
+            var tableElement = document.getElementById('mainTable')
+            var data = {cell1:'Hi',cell2:'Bye',cell3:'Thanks for the fish'}
+            var rowElement = tableElement.insertRow(-1)
+            var cellElement = rowElement.insertCell(0)
+            cellElement.innerHTML = data.cell1;
+            cellElement = rowElement.insertCell(1)
+            cellElement.innerHTML = data.cell2;
+            cellElement = rowElement.insertCell(2)
+            cellElement.innerHTML = data.cell3;
+            
+        }
+    
+    </script>
+</html>

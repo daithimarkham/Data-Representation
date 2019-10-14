@@ -1,0 +1,22 @@
+<!-- David Markham 08/10/2019 -->
+
+<html>
+    <head>
+        <title>2.3</title>
+
+
+    </head>
+    <body>
+        <input id="name" type="text" value="Enter Name"/>
+        <br/> 
+        <button onclick="buttonClicked()">click me</button><br/>
+        <div id="output">Output will go here</div>
+
+        <script>
+            function buttonClicked(){
+                var output= document.getElementById('name').value
+                document.getElementById('output').InnerText = output
+            }
+        </script>
+    </body>
+</html>
