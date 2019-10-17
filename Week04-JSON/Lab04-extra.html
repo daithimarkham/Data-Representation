@@ -1,0 +1,75 @@
+<!-- David Markham -->
+<!-- 17/10/2019 -->
+<!-- Modify the webpage to output the euro rate for bit coin to the page, 
+you will need to look at the JSON that the page returns and work out what you are
+looking for. -->
+
+<!-- {
+    "time": {
+    "updated": "Oct 16, 2019 15:43:00 UTC",
+    "updatedISO": "2019-10-16T15:43:00+00:00",
+    "updateduk": "Oct 16, 2019 at 16:43 BST"
+    },
+    "disclaimer": "This data was produced from the CoinDesk Bitcoin Price Index
+    (USD). NonUSD currency data converted using hourly conversion rate from openexchangerates
+    .org",
+    "chartName": "Bitcoin",
+    "bpi": {
+    "USD": {
+    "code": "USD",
+    "symbol": "&#36;",
+    "rate": "7,979.8633",
+    "description": "United States Dollar",
+    "rate_float": 7979.8633
+    },
+    "EUR": {
+    "code": "EUR",
+    "symbol": "&euro;",
+    "rate": "7,220.6990",
+    "description": "Euro",
+    "rate_float": 7220.699
+    }
+    }
+    }
+    This is the code we will need to enter:
+    var rate = result.bpi.EUR.rate
+    console.log(rate);
+    document.getElementById("output").innerText = rate; -->
+
+    <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>
+    Lab03
+</title>
+    </head>
+    <body>
+        <!-- When you click on the go button, it will read JSON and display the contents of the URL. -->
+        <button onclick="readJSON()">Go</button>
+        <!-- When you enter code below, enter code on line 67. -->
+        <div id="output"></div>
+    </body>
+    <script>
+        function readJSON(){
+        // Calls the ajax
+        $.ajax({
+        // From the URL
+        "url": "https://api.coindesk.com/v1/bpi/currentprice.json ",
+        "method":"GET",
+        "data":"",
+        "dataType": "JSON",
+        "success":function(result){
+        // This fol two lines is the extra code we were asked to do
+        // Displays the current price of Bitcoin in Euro.
+        // To display the price on webpage go to line 49 and enter code there.
+        var rate = result.bpi.EUR.rate; // To change to USD, change Eur to USD, same with British Pound.
+        //console.log(rate); Don't need this when you want price displayed on webpage.
+        document.getElementById("output").innerText= rate;
+        },
+        "error":function(xhr,status,error){
+        console.log("error: "+status+" msg:"+error);
+        }
+        });
+        }
+        </script>
+</html>

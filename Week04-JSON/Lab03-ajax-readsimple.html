@@ -1,0 +1,36 @@
+<!-- David Markham -->
+<!-- 17/10/2019 -->
+<!-- Write a webpage that uses AJAX to read the JSON,
+From the website "https://api.coindesk.com/v1/bpi/currentprice.json" -->
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>
+    Lab03
+</title>
+    </head>
+    <body>
+        <!-- When you click on the go button, it will read JSON and display the contents of the URL. -->
+        <button onclick="readJSON()">Go</button>
+    </body>
+    <script>
+        function readJSON(){
+        // Calls the ajax
+        $.ajax({
+        // From the URL
+        "url": "https://api.coindesk.com/v1/bpi/currentprice.json ",
+        "method":"GET",
+        "data":"",
+        "dataType": "JSON",
+        "success":function(result){
+        // JSON.stringify() is to create a JSON string out of an object/array.
+        console.log(JSON.stringify(result));
+        },
+        "error":function(xhr,status,error){
+        console.log("error: "+status+" msg:"+error);
+        }
+        });
+        }
+        </script>
+</html>
