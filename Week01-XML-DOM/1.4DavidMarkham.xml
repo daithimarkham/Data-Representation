@@ -1,28 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <Library>
-  <Books>
-    <category />
+  <Book isbn-11="978-3-16-148410-0">
     <Category>Technical</Category>
-    <ISBN>978-3-16-148410-0</ISBN>
     <Title>Programming Windows</Title>
     <Author>William Martin</Author>
-  </Books>
-  <Books>
+  </Book>
+  <Book isbn-12="978-3-16-135410-0">
     <Category>Technical </Category>
-    <ISBN>978-3-16-135410-0</ISBN>
     <Title>Python for Beginners</Title>
     <Author>John Michel</Author>
-  </Books>
-  <Books>
+  </Book>
+  <Book isbn-13="978-3-16-178420-0">
     <Category>Cookery Books</Category>
-    <ISBN>978-3-16-178420-0</ISBN>
     <Title>A Taste of Paris</Title>
     <Author>John Paul</Author>
-  </Books>
-  <Books>
+  </Book>
+  <Book isbn-14="978-3-16-137410-0">
     <Category>Cookery Books</Category>
-    <category>978-3-16-137410-0</category>
     <Title>Baking Made Simple</Title>
     <Author>Orla Cook</Author>
-  </Books>
+  </Book>
 </Library>
