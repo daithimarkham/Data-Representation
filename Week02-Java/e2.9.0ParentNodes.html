@@ -9,6 +9,7 @@
         <title>2.9</title>
     </head>
     <body>
+        <h4>Write the code so that when the user clicks on the button in a row, the contents of the cells in that row are stored in an object and outputted to the console.</h4>
         <table>
             <tr>
                 <td>Hello</td>
@@ -23,7 +24,7 @@
             var rowElement = buttonElement.parentNode.parentNode
             var data={}
             data.cell1 = rowElement.cells[0].firstChild.textContent;
-            data.cell2 = rowElement.cells[2].firstChild.textContent;
+            data.cell2 = rowElement.cells[1].firstChild.textContent;
 
             console.log(JSON.stringify(data))
         }
