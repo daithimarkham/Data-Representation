@@ -1,21 +1,24 @@
-<!-- David Markham 08/10/2019 -->
+<!-- David Markham 02/10/2020 -->
+<!--Displays user input, when button is clicked, contents of user input displayed in another Div.-->
+
 
 <html>
     <head>
-        <title>2.3</title>
+        <title>2.3</title> 
 
 
     </head>
     <body>
-        <input id="name" type="text" value="Enter Name"/>
+        <h4>Displays user input, when button is clicked, contents of user input displayed in another Div.</h4>
+        <input id="name" type="text" value="Enter Name"/> <!--Asks for user input.-->
         <br/> 
-        <button onclick="buttonClicked()">click me</button><br/>
-        <div id="output">Output will go here</div>
+        <button onclick="buttonClicked()">click me</button><br/> <!--Button-->
+        <div id="output">Output will go here</div> 
 
         <script>
             function buttonClicked(){
                 var output= document.getElementById('name').value
-                document.getElementById('output').InnerText = output
+                document.getElementById('output').innerText = output
             }
         </script>
     </body>
