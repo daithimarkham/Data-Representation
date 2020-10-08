@@ -8,7 +8,8 @@ employee_file = open('employee_file.csv', mode='w') # what file to open. mode=w 
 # Now we make a variable called employee_writer. Delimiter we use, quoate char will look like, and minimal amount of quiting is necessary.
 employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL) 
 
-employee_writer.writerow(['John Smith', 'Accounting', 'November']) # Write row
+# Here we create two new rows.
+employee_writer.writerow(['John Malone', 'Accounting', 'November']) # Write row
 employee_writer.writerow(['Erica Meyers', 'IT', 'March']) # Write row.
 
-employee_file.close() # Then close file when finished with it.
+employee_file.close() # Then close file when finished with it. 
