@@ -8,12 +8,12 @@
 import requests
 import csv
 from bs4 import BeautifulSoup
-url = "https://www.myhome.ie/residential/mayo/property-for-sale?page=1" # URL
+url = "https://www.myhome.ie/residential/mayo/property-for-sale?page=1" # URL we will import.
 page = requests.get(url) 
 
 soup = BeautifulSoup(page.content, "html.parser") 
 
-home_file = open("Week03MyHome.csv", mode="w")
+home_file = open("Week03MyHome.csv", mode="w") # Write to file.
 home_writer = csv.writer(home_file, delimiter='\t', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
 # Find the Div where the class equals the property listing card.
