@@ -4,10 +4,11 @@
 # How to find data, elements, classes etc from a webpage,
 # So you can navigate to data which you want in an easy manner.
 
+# Import all libraries
 import requests
 import csv
 from bs4 import BeautifulSoup
-url = "https://www.myhome.ie/residential/mayo/property-for-sale?page=1"
+url = "https://www.myhome.ie/residential/mayo/property-for-sale?page=1" # URL
 page = requests.get(url) 
 
 soup = BeautifulSoup(page.content, "html.parser") 
