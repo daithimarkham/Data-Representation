@@ -1,5 +1,6 @@
-# David Markham 11/10/2019
+# David Markham 08/10/2020
 # Bringing code together from previous files.
+
 
 from bs4 import BeautifulSoup
 import csv
