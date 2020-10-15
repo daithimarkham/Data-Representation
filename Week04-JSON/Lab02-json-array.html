@@ -1,29 +1,25 @@
 <!-- David Markham -->
-<!-- 17/10/2019 -->
+<!-- 15/10/2020 -->
 <!-- Write the code below that will convert the
 following JSON into a javascript object (array) or list of the employees first names to the console). -->
 
-<!-- {"employees": [{"firstName": "John", "lastName": "Doe"},{
-    "firstName": "Anna","lastName": "Smith"},{"firstName": "Peter",
-    "lastName": "Jones"}]} -->
+<!-- {"employees": [{"firstName": "John", "lastName": "Doe"},{"firstName": "Anna","lastName": "Smith"},{"firstName": "Peter","lastName": "Jones"}]} -->
     
 
 <html>
     <head>
-        <title>lab02</title>
+        <title>Lab02</title>
     </head>
     <body>
-        <!-- Displays go button when clicked outputs data in Console  -->
+        <!-- Displays go button when clicked, outputs data in Console  -->
         <button onclick="displayJSON()">go</button> 
     </body>
     <script>
         function displayJSON(){
-            var obj = JSON.parse('{"employees": [{"firstName": "John", "lastName": "Doe"},{ "firstName": "Anna","lastName": "Smith"},{"firstName": "Peter","lastName": "Jones"}]}')
-            for (employee of obj.employees){
-                console.log(employee.firstName)
-            }
-                
-            
+            var obj = JSON.parse('{"employees": [{"firstName": "John", "lastName": "Doe"},{ "firstName": "Anna","lastName": "Smith"},{"firstName": "Peter","lastName": "Jones"}]}') // Makes JSON string
+            for (employee of obj.employees){ // for each employee of employees 
+                console.log(employee.firstName) // Prints out each of the employees first names.
+            }            
         }
     </script>
 </html>
