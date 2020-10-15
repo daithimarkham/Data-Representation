@@ -11,10 +11,12 @@
     <head>
         <title>Simple JSON - Lab01</title>
     </head>
+    <body>
+        <button onclick="displayJSON()">go</button> 
+    </body>
     <script>
-        var jasonString='{"ISBN":1234567, "Author": "David Markham", "Title": "Technology"}';
-        var obj = JSON.parse('{ "ISBN": 1234567, "Author": "David Markham","Title" : "The emptiness of ping-pong balls."}')
-        console.log(obj.Author) 
-    // console.log prints out to the browser.
+        var jasonString='{"ISBN":1234567, "Author": "David Markham", "Title": "the emptiness of ping-pong balls"}'; // Creates JSON String
+        var obj = JSON.parse('{ "ISBN": 1234567, "Author": "David Markham","Title" : "The emptiness of ping-pong balls."}') // Converts string into JSON Object.
+        console.log(obj.Author) // Prints name of author to console in browser, right click, inspect and Console.
     </script>
-</html>
+</html> 
