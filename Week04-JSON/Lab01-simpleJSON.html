@@ -1,5 +1,5 @@
 <!--David Markham-->
-<!-- 17/10/2019 -->
+<!-- 15/10/2020 -->
 <!-- Write the code for the following JSON into a Javascript object, -->
 <!-- And prints out the name of the author to the console. -->
 
@@ -12,11 +12,14 @@
         <title>Simple JSON - Lab01</title>
     </head>
     <body>
-        <button onclick="displayJSON()">go</button> 
+        <button onclick="displayJSON()">go</button> <!--Displays Button, when clicked outputs author to console-->
     </body>
     <script>
+        // Create function to display author to console when clicked.
+        function displayJSON(){
         var jasonString='{"ISBN":1234567, "Author": "David Markham", "Title": "the emptiness of ping-pong balls"}'; // Creates JSON String
         var obj = JSON.parse('{ "ISBN": 1234567, "Author": "David Markham","Title" : "The emptiness of ping-pong balls."}') // Converts string into JSON Object.
-        console.log(obj.Author) // Prints name of author to console in browser, right click, inspect and Console.
+        console.log(obj.Author); // Prints name of author to console in browser, right click, inspect and Console.
+        }
     </script>
 </html> 
