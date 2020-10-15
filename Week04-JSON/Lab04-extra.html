@@ -1,7 +1,7 @@
 <!-- David Markham -->
 <!-- 17/10/2019 -->
-<!-- Modify the webpage to output the euro rate for bit coin to the page, 
-you will need to look at the JSON that the page returns and work out what you are
+<!-- Modify the webpage to output the euro rate for bitcoin to the page, 
+you will need to look at the JSON which the page returns and work out what you are
 looking for. -->
 
 <!-- {
@@ -36,6 +36,8 @@ looking for. -->
     console.log(rate);
     document.getElementById("output").innerText = rate; -->
 
+<!--This time we will print the output to the webpage instead of console.-->
+
     <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -45,9 +47,10 @@ looking for. -->
     </head>
     <body>
         <!-- When you click on the go button, it will read JSON and display the contents of the URL. -->
-        <button onclick="readJSON()">Go</button>
-        <!-- When you enter code below, enter code on line 67. -->
-        <div id="output"></div>
+        <button onclick="readJSON()">Go</button> 
+        <!-- When you enter code below, enter code on line 67. 
+        Here we create a DIV to display the price/output on the webpage when we click on button.-->
+        <div id="output"></div> 
     </body>
     <script>
         function readJSON(){
@@ -63,8 +66,9 @@ looking for. -->
         // Displays the current price of Bitcoin in Euro.
         // To display the price on webpage go to line 49 and enter code there.
         var rate = result.bpi.EUR.rate; // To change to USD, change Eur to USD, same with British Pound.
-        //console.log(rate); Don't need this when you want price displayed on webpage.
-        document.getElementById("output").innerText= rate;
+        //console.log(rate); Don't need this printed on console, when you want price displayed on webpage.
+        // Below we can call the div on line 53, and display it on the webpage when button is pressed.
+        document.getElementById("output").innerText= rate; // Best practice put in semi-colons at end of line. Will do it auto.
         },
         "error":function(xhr,status,error){
         console.log("error: "+status+" msg:"+error);
