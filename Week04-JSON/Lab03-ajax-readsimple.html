@@ -1,7 +1,13 @@
 <!-- David Markham -->
-<!-- 17/10/2019 -->
+<!-- 15/10/2020 -->
+
 <!-- Write a webpage that uses AJAX to read the JSON,
-From the website "https://api.coindesk.com/v1/bpi/currentprice.json" -->
+From the website "https://api.coindesk.com/v1/bpi/currentprice.json".
+This will output all the contents from the webpage and display it on the console when we press the go button.
+AJAX allows you to: 
+- Read data from a web server - after a web page has loaded
+- Update a web page without reloading the page
+- Send data to a web server - in the background -->
 
 <html>
     <head>
@@ -11,24 +17,25 @@ From the website "https://api.coindesk.com/v1/bpi/currentprice.json" -->
 </title>
     </head>
     <body>
-        <!-- When you click on the go button, it will read JSON and display the contents of the URL. -->
-        <button onclick="readJSON()">Go</button>
+        <!-- When you click on the go button, it will read JSON and display the contents of the URL.
+        Create function readJSON -->
+        <button onclick="readJSON()">Go</button> 
     </body>
     <script>
-        function readJSON(){
-        // Calls the ajax
+        function readJSON(){ // Function we just created.
+        // Calls the AJAX.
         $.ajax({
         // From the URL
         "url": "https://api.coindesk.com/v1/bpi/currentprice.json ",
-        "method":"GET",
-        "data":"",
-        "dataType": "JSON",
-        "success":function(result){
+        "method":"GET", // Get method
+        "data":"", // no data
+        "dataType": "JSON", 
+        "success":function(result){ // function which takes in the result
         // JSON.stringify() is to create a JSON string out of an object/array.
         console.log(JSON.stringify(result));
         },
-        "error":function(xhr,status,error){
-        console.log("error: "+status+" msg:"+error);
+        "error":function(xhr,status,error){ // xhr is an abject which contains all this info.
+        console.log("error:"+status+" message:"+error); //
         }
         });
         }
