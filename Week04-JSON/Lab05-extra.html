@@ -1,12 +1,13 @@
 <!-- David Markham -->
 <!-- 17/10/2019 -->
 <!-- Here is the URL for another Crypto currency, print out the dollar price to a
-webpage -->
+webpage
+Only difference from Lab 4 is a different URL on line 25. Give the price of Ethereum -->
 <!-- https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR -->
 
 <html>
         <head>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!--Magic line to get jQuery-->
     <title>
         Lab05
     </title>
@@ -21,7 +22,7 @@ webpage -->
             // Calls the ajax
             $.ajax({
             // From the URL
-            "url": "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR",
+            "url": "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR", // API for webpage.
             "method":"GET",
             "data":"",
             "dataType": "JSON",
@@ -30,12 +31,12 @@ webpage -->
             // This fol two lines is the extra code we were asked to do
             // Displays the current price of Bitcoin in Euro.
             // To display the price on webpage go to line 49 and enter code there.
-                var rate = result.USD; // To change to Eur, change Eur to USD, same with British Pound.
+                var rate = result.USD; // To change to Eur, change Eur to USD, same with British Pound. This gets us the USD. Don't need rate this time.
                 console.log(rate); 
                 document.getElementById("output").innerText= rate;
             },
-            "error":function(xhr,status,error){
-            console.log("error: "+status+" msg:"+error);
+            "error":function(xhr,status,error){ // If error display info
+            console.log("error: "+status+" msg:"+error); // prints out to console
             }
             });
             }
