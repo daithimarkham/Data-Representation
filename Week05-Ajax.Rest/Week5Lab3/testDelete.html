@@ -1,0 +1,38 @@
+<!--David Markham-->
+<!--29-10-2020-->
+<!--Test server with an Delete method.-->
+
+<html>
+    <head>
+        <title>Test Delete</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+    <button onclick="callDelete('12 G 1234')">Test Delete</button>      
+    
+    <script>
+        // Create function 
+        function callDelete(reg){
+
+            
+            $.ajax({ // Call AJAX
+                "url": "http://127.0.0.1:5000/cars/"+encodeURI(reg), // Pass in object, plus reg, that will be ID to update.
+                "method":"DELETE", // method is GET
+                "data": "", // data, none needed on delete.
+                "dataType": "JSON", 
+                "success":function(result){ // on success call this function
+                    console.log(result); // displays out to console
+                        
+                    
+                },
+                "error":function(xhr,status,error){ // if error, call this function.
+                    console.log("error: "+status+" msg:"+error); // and display to console.
+                }
+            });
+
+        }
+    </script>
+</body>
+
+
+</html>

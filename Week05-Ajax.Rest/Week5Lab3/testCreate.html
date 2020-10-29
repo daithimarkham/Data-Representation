@@ -1,0 +1,39 @@
+<!--David Markham--> 
+<!--2020-10-23-->
+<!--Here we can test the server by calling Create function.-->
+
+<html>
+    <head>
+        <title>Test Create</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+    <button onclick="callCreate()">Test Create</button>      
+    
+    <script>
+        // Create function 
+        function callCreate(){
+            var car = {reg:"12 G 1234", make:"Ford", model:"Galaxy", price:123}
+            
+            $.ajax({ // Call AJAX
+                "url": "http://127.0.0.1:5000/cars", // Pass in object
+                "method":"POST", // method is GET
+                "data": JSON.stringify(car), // data
+                "dataType": "JSON", 
+                contentType: "application/json; charset-utf",
+                "success":function(result){ // on success call this function
+                    console.log(result); // displays out to console
+                        
+                    
+                },
+                "error":function(xhr,status,error){ // if error, call this function.
+                    console.log("error: "+status+" msg:"+error); // and display to console.
+                }
+            });
+
+        }
+    </script>
+</body>
+
+
+</html>
